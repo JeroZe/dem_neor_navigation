@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+    <world name="height_world">
+        <gui>
+        <plugin name="keyboard" filename="libKeyboardGUIPlugin.so"/>
+        </gui>
+        <model name="heightmap">
+        <static>true</static>
+        <link name="link">
+            <collision name="collision">
+            <geometry>
+                <heightmap>
+                <uri>/home/jero/backup/dem_neor_navigation/src/neor_mini_foxy/worlds/autogen_terrain/materials/textures/heightmap.png</uri>
+                <size>200 200 5</size>
+                <pos>0 0 0</pos>
+                </heightmap>
+            </geometry>
+            </collision>
+            <visual name="visual_abcedf">
+            <geometry>
+                <heightmap>
+                <use_terrain_paging>false</use_terrain_paging>
+                
+                <uri>/home/jero/backup/dem_neor_navigation/src/neor_mini_foxy/worlds/autogen_terrain/materials/textures/heightmap.png</uri>
+                <size>200 200 5</size>
+                <pos>0 0 0</pos>
+                </heightmap>
+            </geometry>
+            </visual>
+        </link>
+        </model>
+        <gui fullscreen='0'>
+        <camera name='user_camera'>
+            <pose frame=''>-56.538 -5.9514 10 -0 0.405797 -0.483804</pose>
+            <view_controller>orbit</view_controller>
+            <projection_type>perspective</projection_type>
+        </camera>
+        </gui>
+  </world>
+</sdf>

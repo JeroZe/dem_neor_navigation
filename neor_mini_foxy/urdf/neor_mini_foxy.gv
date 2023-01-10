@@ -1,0 +1,44 @@
+digraph G {
+node [shape=box];
+"base_footprint" [label="base_footprint"];
+"base_link" [label="base_link"];
+"laser_link" [label="laser_link"];
+"laser_link2" [label="laser_link2"];
+"VLP16_base_link" [label="VLP16_base_link"];
+"velodyne" [label="velodyne"];
+"camera_link" [label="camera_link"];
+"front_steer_left_link" [label="front_steer_left_link"];
+"front_left_wheel_link" [label="front_left_wheel_link"];
+"front_steer_right_link" [label="front_steer_right_link"];
+"front_right_wheel_link" [label="front_right_wheel_link"];
+"imu_link" [label="imu_link"];
+"left_rear_link" [label="left_rear_link"];
+"right_rear_link" [label="right_rear_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_footprint" -> "base_link2base_footprint" [label="xyz: 0 0 0.1 \nrpy: 0 -0 0"]
+"base_link2base_footprint" -> "base_link"
+"base_link" -> "2Dlaser_joints" [label="xyz: 0 0 0.13 \nrpy: 0 -0 0"]
+"2Dlaser_joints" -> "laser_link"
+"base_link" -> "2Dlaser_joints2" [label="xyz: 0.03 0 0.112 \nrpy: 0 -0 0"]
+"2Dlaser_joints2" -> "laser_link2"
+"base_link" -> "VLP16_base_mount_joint" [label="xyz: 0 0 0.1 \nrpy: 0 -0 0"]
+"VLP16_base_mount_joint" -> "VLP16_base_link"
+"VLP16_base_link" -> "VLP16_base_scan_joint" [label="xyz: 0 0 0.08 \nrpy: 0 -0 0"]
+"VLP16_base_scan_joint" -> "velodyne"
+"base_link" -> "camera_joints" [label="xyz: 0.12 0 0.12 \nrpy: 0 -0 0"]
+"camera_joints" -> "camera_link"
+"base_link" -> "front_steer_left_joint" [label="xyz: 0.17 0.21 0.102 \nrpy: 0 -0 0"]
+"front_steer_left_joint" -> "front_steer_left_link"
+"front_steer_left_link" -> "front_left_wheel_joint" [label="xyz: 0 0 -0.06 \nrpy: 0 -0 0"]
+"front_left_wheel_joint" -> "front_left_wheel_link"
+"base_link" -> "front_steer_right_joint" [label="xyz: 0.17 -0.21 0.102 \nrpy: 0 -0 0"]
+"front_steer_right_joint" -> "front_steer_right_link"
+"front_steer_right_link" -> "front_right_wheel_joint" [label="xyz: 0 0 -0.06 \nrpy: 0 -0 0"]
+"front_right_wheel_joint" -> "front_right_wheel_link"
+"base_link" -> "imu_joints" [label="xyz: -0.1 0 0.02 \nrpy: 0 -0 0"]
+"imu_joints" -> "imu_link"
+"base_link" -> "left_rear_joint" [label="xyz: -0.1815 0.228542 0.04 \nrpy: 0 -0 0"]
+"left_rear_joint" -> "left_rear_link"
+"base_link" -> "right_rear_joint" [label="xyz: -0.1815 -0.228542 0.04 \nrpy: 0 -0 0"]
+"right_rear_joint" -> "right_rear_link"
+}
